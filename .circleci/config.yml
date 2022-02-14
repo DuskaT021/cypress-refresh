@@ -3,22 +3,18 @@
 # Specify the configuration version, access to all latest features
 version: 2.1
 
+orbs:
+  cypress: cypress-io/cypress@1
 workflows:
-  test-deploy:
+  build:
     jobs:
-      - test
-# orbs:
-# cypress: cypress-io/cypress@1
-# workflows:
-# build:
-# jobs:
-# - cypress/install:
-# build: npm run install:todomvc
-# - cypress/run:
-# requires:
-# - cypress/install
-# start: npm start
-# record: true
+      - cypress/install:
+        build: npm run install:todomvc
+      - cypress/run:
+          requires:
+            - cypress/install
+          start: npm start
+          record: true
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 #jobs:
