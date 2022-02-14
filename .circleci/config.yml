@@ -1,26 +1,43 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/2.0/configuration-reference
+# Specify the configuration version, access to all latest features
 version: 2.1
 
+workflows:
+  test-deploy:
+    jobs:
+      - test
+# orbs:
+# cypress: cypress-io/cypress@1
+# workflows:
+# build:
+# jobs:
+# - cypress/install:
+# build: npm run install:todomvc
+# - cypress/run:
+# requires:
+# - cypress/install
+# start: npm start
+# record: true
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+#jobs:
+
+# Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+# See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+#docker:
+# - image: cimg/base:stable
+# Add steps to the job
+# See: https://circleci.com/docs/2.0/configuration-reference/#steps
+#steps:
+# - checkout
+# - run:
+#     name: 'Say hello'
+#     command: 'echo Hello, World!'
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
-  say-hello-workflow:
-    jobs:
-      - say-hello
+# workflows:
+#   say-hello-workflow:
+#     jobs:
+#       - say-hello
