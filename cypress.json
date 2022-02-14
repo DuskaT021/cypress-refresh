@@ -1,0 +1,4 @@
+{
+  "pluginsFile": "node_modules/@cypress/code-coverage/plugins",
+  "supportFile": "node_modules/@cypress/code-coverage/support"
+}
